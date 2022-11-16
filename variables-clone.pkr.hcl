@@ -6,5 +6,5 @@ variable "clone_vm" {
 variable "full_clone" {
   description = "Whether to run a full or shallow clone from the base clone_vm."
   type        = bool
-  default     = true
+  default     = false
 }

@@ -13,7 +13,7 @@ variable "vga" {
   )
 
   default = {
-    type : "none",
-    memory : 0
+    type : "std",
+    memory : 16
   }
 }
