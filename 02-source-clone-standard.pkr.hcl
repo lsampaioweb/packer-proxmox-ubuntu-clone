@@ -52,6 +52,8 @@ build {
   provisioner "ansible" {
     playbook_file = "${local.path_ansible_scripts}/template.yml"
 
+    ansible_env_vars = ["ANSIBLE_CONFIG=${local.path_ansible_scripts}/ansible.cfg"]
+
     extra_arguments = [
       "--extra-vars",
       "hostname=${var.vm_name}"
