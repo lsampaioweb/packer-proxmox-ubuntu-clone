@@ -32,19 +32,10 @@ Run these commands on the computer that is running Packer:
 
 03 - Add the API token of the user to the ~/.bashrc file.
   nano ~/.bashrc
-  # Function to unlock gnome keyring for headless logins.
-  function unlock-keyring ()
-  {
-    read -rsp "Type your password: " pass
-    export $(echo -n "$pass" | gnome-keyring-daemon --replace --unlock --daemonize)
-    unset pass
-
-    export PKR_VAR_PROXMOX_PACKER_TOKEN=$(secret-tool lookup token "proxmox-packer-token")
-  }
+  export PKR_VAR_PROXMOX_PACKER_TOKEN=$(secret-tool lookup token "proxmox-packer-token")
 
 04 - Run the unlock-keyring command on the terminal to unlock the secret - manager.
   source ~/.bashrc
-  unlock-keyring  
 
 05 - Create the necessary folders and files.
   git submodule add https://github.com/lsampaioweb/packer-proxmox-ubuntu-22-04-clone.git clone
