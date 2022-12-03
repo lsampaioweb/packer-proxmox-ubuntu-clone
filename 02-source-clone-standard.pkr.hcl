@@ -1,4 +1,4 @@
-source "proxmox-clone" "ubuntu" {
+source "proxmox-clone" "template" {
   # https://www.packer.io/plugins/builders/proxmox/clone
 
   # Proxmox authentication
@@ -45,9 +45,9 @@ source "proxmox-clone" "ubuntu" {
 }
 
 build {
-  name = "template"
+  name = var.build_name
 
-  sources = ["source.proxmox-clone.ubuntu"]
+  sources = ["source.proxmox-clone.template"]
 
   provisioner "ansible" {
     playbook_file = "${local.path_ansible_scripts}/template.yml"
