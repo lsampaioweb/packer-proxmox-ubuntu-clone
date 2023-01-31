@@ -44,7 +44,7 @@ Run these commands on the computer that is running Packer:
   packer {
     required_plugins {
       proxmox = {
-        version = ">= 1.0.6"
+        version = ">= 1.1.1"
         source  = "github.com/hashicorp/proxmox"
       }
     }
