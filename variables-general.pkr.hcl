@@ -26,6 +26,12 @@ variable "pool" {
   default     = "Template"
 }
 
+variable "bios" {
+  description = "The BIOS to use, options are seabios or ovmf for UEFI."
+  type        = string
+  default     = "seabios"
+}
+
 variable "onboot" {
   description = "Specifies whether a VM will be started during system bootup. Defaults to false."
   type        = bool
