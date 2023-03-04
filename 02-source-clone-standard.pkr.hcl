@@ -28,10 +28,6 @@ source "proxmox-clone" "template" {
     memory = var.vga.memory
   }
 
-  # Cloud-Init
-  cloud_init              = var.cloud_init
-  cloud_init_storage_pool = var.cloud_init_storage_pool
-
   # System
   machine         = var.machine
   qemu_agent      = var.qemu_agent
