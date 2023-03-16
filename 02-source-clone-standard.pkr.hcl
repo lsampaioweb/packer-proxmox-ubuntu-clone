@@ -28,6 +28,10 @@ source "proxmox-clone" "template" {
     memory = var.vga.memory
   }
 
+  # Cloud-Init
+  cloud_init              = var.cloud_init
+  cloud_init_storage_pool = var.cloud_init_storage_pool
+
   # System
   machine         = var.machine
   qemu_agent      = var.qemu_agent
@@ -43,7 +47,6 @@ source "proxmox-clone" "template" {
 
   # SSH Connection with the template
   ssh_username = var.ssh_username
-  ssh_password = file(local.path_password)
   ssh_timeout  = var.ssh_timeout
 }
 
@@ -61,7 +64,7 @@ build {
 
     extra_arguments = [
       "--extra-vars",
-      "hostname=${var.vm_name}"
+      "hostname=${var.vm_name} password_id=${var.vm_name}"
     ]
 
     // This is a bug/workaround and I didn't like it. 
