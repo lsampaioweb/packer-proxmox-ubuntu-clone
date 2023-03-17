@@ -34,37 +34,13 @@ Run these commands on the computer that is running Packer:
   nano ~/.bashrc
   export PKR_VAR_PROXMOX_PACKER_TOKEN=$(secret-tool lookup token "proxmox-packer-token")
 
-04 - Run the unlock-keyring command on the terminal to unlock the secret - manager.
+04 - Run the source command on the terminal.
   source ~/.bashrc
-
-05 - Create the necessary folders and files.
-  git submodule add https://github.com/lsampaioweb/packer-proxmox-ubuntu-22-04-clone.git clone
-
-  nano config.pkr.hcl
-  packer {
-    required_plugins {
-      proxmox = {
-        version = ">= 1.1.2"
-        source  = "github.com/hashicorp/proxmox"
-      }
-    }
-  }
-
-  nano project.pkrvars.hcl
-  clone_vm = "ubuntu-22-04-server-raw"
-
-  vm_id   = 901
-  vm_name = "ubuntu-22-04-server-standard"
-
-06 - Run Packer to create the template.
-  cd packer
-
-  packer init config.pkr.hcl
-  packer build -only="credencials.null.password" -var-file=project.pkrvars.hcl clone/.
-  packer build -only="template.proxmox-clone.ubuntu" -var-file=project.pkrvars.hcl clone/.
-  or 
-  ./pipeline.sh
 ```
+
+See the project: <br/> 
+1. [proxmox-ubuntu-22-04-server-raw](https://github.com/lsampaioweb/proxmox-ubuntu-22-04-server-raw "proxmox-ubuntu-22-04-server-raw").
+1. [proxmox-ubuntu-22-04-server-standard](https://github.com/lsampaioweb/proxmox-ubuntu-22-04-server-standard "proxmox-ubuntu-22-04-server-standard").
 
 # License:
 
