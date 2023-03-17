@@ -64,7 +64,7 @@ build {
 
     extra_arguments = [
       "--extra-vars",
-      "hostname=${var.vm_name} password_id=${var.vm_name}"
+      "hostname=${var.vm_name}"
     ]
 
     // This is a bug/workaround and I didn't like it. 
