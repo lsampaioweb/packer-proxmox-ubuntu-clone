@@ -66,9 +66,5 @@ build {
       "--extra-vars",
       "hostname=${var.vm_name}"
     ]
-
-    // This is a bug/workaround and I didn't like it. 
-    // TODO - Find a better solution.
-    ansible_ssh_extra_args = ["-oHostKeyAlgorithms=+ssh-rsa -oPubkeyAcceptedKeyTypes=+ssh-rsa"]
   }
 }
