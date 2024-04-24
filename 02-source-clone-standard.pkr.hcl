@@ -43,7 +43,8 @@ source "proxmox-clone" "template" {
   cpu_type = var.cpu_type
 
   # Memory
-  memory = var.memory
+  memory             = var.memory
+  ballooning_minimum = var.ballooning_minimum
 
   # SSH Connection with the template
   ssh_username = var.ssh_username
