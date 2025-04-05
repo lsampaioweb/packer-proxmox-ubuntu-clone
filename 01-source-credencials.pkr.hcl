@@ -3,7 +3,7 @@ source "null" "password" {
 }
 
 build {
-  name = "credencials"
+  name = "credentials"
 
   sources = ["source.null.password"]
 
