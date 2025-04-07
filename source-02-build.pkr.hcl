@@ -52,7 +52,7 @@ source "proxmox-clone" "template" {
 }
 
 build {
-  name = var.build_name
+  name = "build"
 
   sources = ["source.proxmox-clone.template"]
 
