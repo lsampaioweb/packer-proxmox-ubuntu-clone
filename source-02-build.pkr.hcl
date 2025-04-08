@@ -2,27 +2,31 @@ source "proxmox-clone" "template" {
   # https://www.packer.io/plugins/builders/proxmox/clone
 
   # Proxmox authentication
-  proxmox_url = var.proxmox_url
-  username    = var.username
-  token       = var.token
+  proxmox_url              = var.proxmox_url
+  username                 = var.username
+  token                    = var.token
+  password                 = var.password
+  insecure_skip_tls_verify = var.insecure_skip_tls_verify
+  task_timeout             = var.task_timeout
+
+  # Clone
+  clone_vm   = var.clone_vm
+  full_clone = var.full_clone
 
   # General
   node                 = var.node
   vm_id                = var.vm_id
   vm_name              = var.vm_name
   pool                 = var.pool
-  bios                 = var.bios
-  onboot               = var.onboot
-  task_timeout         = var.task_timeout
   template_description = var.template_description
 
-  # Clone
-  clone_vm   = var.clone_vm
-  full_clone = var.full_clone
+  # Behavior
+  onboot      = var.onboot
+  boot        = var.boot
+  disable_kvm = var.disable_kvm
 
   # OS
-  boot = var.boot
-  os   = var.os
+  os = var.os
   vga {
     type   = var.vga.type
     memory = var.vga.memory
@@ -30,6 +34,7 @@ source "proxmox-clone" "template" {
 
   # Cloud-Init
   cloud_init              = var.cloud_init
+  cloud_init_disk_type    = var.cloud_init_disk_type
   cloud_init_storage_pool = var.cloud_init_storage_pool
 
   # System
@@ -46,9 +51,10 @@ source "proxmox-clone" "template" {
   memory             = var.memory
   ballooning_minimum = var.ballooning_minimum
 
-  # SSH Connection with the template
-  ssh_username = var.ssh_username
-  ssh_timeout  = var.ssh_timeout
+  # SSH
+  ssh_username         = var.ssh_username
+  ssh_private_key_file = var.ssh_private_key_file
+  ssh_timeout          = var.ssh_timeout
 }
 
 build {
