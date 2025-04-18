@@ -49,19 +49,7 @@ variable "disk_default_ssd" {
 variable "disks" {
   description = "List of hard disks for the VM. Specify only the fields you want to override; defaults will be applied for unspecified fields."
   type        = list(map(string))
-
-  default = [
-    {
-      storage_pool = "local-lvm"
-      type         = "scsi"
-      format       = "raw"
-      disk_size    = "30G"
-      cache_mode   = "none"
-      io_thread    = true
-      discard      = true
-      ssd          = true
-    }
-  ]
+  default     = []
 
   validation {
     condition = alltrue([

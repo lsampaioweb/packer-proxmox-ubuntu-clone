@@ -16,7 +16,7 @@ build {
 
     extra_arguments = [
       "--extra-vars",
-      "node=${var.node} vm_id=${var.vm_id} storage_pool=${local.storage_pool}"
+      "node='${var.node}' vm_name='${var.vm_name}'"
     ]
   }
 }

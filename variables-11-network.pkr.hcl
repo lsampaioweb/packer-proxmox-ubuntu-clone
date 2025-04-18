@@ -25,15 +25,7 @@ variable "network_default_firewall" {
 variable "network_adapters" {
   description = "List of network adapters for the VM. Specify only the fields you want to override; defaults will be applied for unspecified fields."
   type        = list(map(string))
-
-  default = [
-    {
-      bridge   = "vmbr0"
-      model    = "virtio"
-      vlan_tag = ""
-      firewall = false
-    }
-  ]
+  default     = []
 
   validation {
     condition = alltrue([

@@ -28,14 +28,15 @@ source "proxmox-clone" "template" {
   # OS
   os = var.os
   vga {
-    type   = var.vga.type
-    memory = var.vga.memory
+    type   = var.vga != null ? var.vga.type : null
+    memory = var.vga != null ? var.vga.memory : null
   }
 
   # Cloud-Init
-  cloud_init              = var.cloud_init
-  cloud_init_disk_type    = var.cloud_init_disk_type
-  cloud_init_storage_pool = var.cloud_init_storage_pool
+  cloud_init           = var.cloud_init
+  cloud_init_disk_type = var.cloud_init_disk_type
+  # Only this one comes from local, not var.
+  cloud_init_storage_pool = local.cloud_init_storage_pool
 
   # System
   machine         = var.machine
@@ -99,7 +100,7 @@ build {
 
     extra_arguments = [
       "--extra-vars",
-      "hostname=${var.vm_name}"
+      "hostname='${var.vm_name}'"
     ]
   }
 }

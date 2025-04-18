@@ -1,10 +1,10 @@
 variable "machine" {
   description = "Set the machine type. Can be i440fx (or pc) or q35. Defaults to i440fx if not specified."
   type        = string
-  default     = "q35"
+  default     = null
 
   validation {
-    condition     = contains(["pc", "q35"], var.machine)
+    condition     = var.machine == null ? true : contains(["pc", "q35"], var.machine)
     error_message = "Machine must be either 'pc' or 'q35' if specified."
   }
 }

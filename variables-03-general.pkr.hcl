@@ -22,7 +22,7 @@ variable "vm_name" {
 variable "pool" {
   description = "Name of resource pool to create virtual machine in."
   type        = string
-  default     = ""
+  default     = null
 }
 
 variable "template_description" {
