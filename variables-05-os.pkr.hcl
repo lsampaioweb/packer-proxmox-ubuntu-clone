@@ -1,10 +1,10 @@
 variable "os" {
-  description = "The operating system to override on the cloned VM. Can be wxp, w2k, w2k3, w2k8, wvista, win7, win8, win10, l24 (Linux 2.4), l26 (Linux 2.6+), solaris, or other. If null, inherit from the cloned template."
+  description = "The operating system. Can be wxp, w2k, w2k3, w2k8, wvista, win7, win8, win10, l24 (Linux 2.4), l26 (Linux 2.6+), solaris or other. Defaults to l26."
   type        = string
-  default     = null
+  default     = "l26"
 
   validation {
-    condition     = var.os == null ? true : contains(["wxp", "w2k", "w2k3", "w2k8", "wvista", "win7", "win8", "win10", "l24", "l26", "solaris", "other"], var.os)
+    condition     = contains(["wxp", "w2k", "w2k3", "w2k8", "wvista", "win7", "win8", "win10", "l24", "l26", "solaris", "other"], var.os)
     error_message = "Os must be one of 'wxp', 'w2k', 'w2k3', 'w2k8', 'wvista', 'win7', 'win8', 'win10', 'l24', 'l26', 'solaris', or 'other'."
   }
 }
