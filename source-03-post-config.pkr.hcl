@@ -16,7 +16,7 @@ build {
 
     extra_arguments = [
       "--extra-vars",
-      "node='${var.node}' vm_name='${var.vm_name}'"
+      "node='${var.node}' vm_name='${var.vm_name}' cpu_type='${var.cpu_type}' hotplug='${var.hotplug}'"
     ]
   }
 }
