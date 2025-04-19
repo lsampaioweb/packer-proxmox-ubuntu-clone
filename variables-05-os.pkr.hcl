@@ -10,7 +10,7 @@ variable "os" {
 }
 
 variable "vga" {
-  description = "The graphics adapter to override on the cloned VM. Can be cirrus, none, qxl, qxl2, qxl3, qxl4, serial0, serial1, serial2, serial3, std, virtio, vmware. If null, inherit from the cloned template."
+  description = "The graphics adapter to override on the cloned VM. Can be cirrus, none, qxl, qxl2, qxl3, qxl4, serial0, serial1, serial2, serial3, std, virtio, virtio-gl or vmware. If null, inherit from the cloned template."
   type = object({
     type   = string
     memory = number
@@ -18,8 +18,8 @@ variable "vga" {
   default = null
 
   validation {
-    condition     = var.vga == null ? true : contains(["cirrus", "none", "qxl", "qxl2", "qxl3", "qxl4", "serial0", "serial1", "serial2", "serial3", "std", "virtio", "vmware"], var.vga.type)
-    error_message = "Vga type must be one of 'cirrus', 'none', 'qxl', 'qxl2', 'qxl3', 'qxl4', 'serial0', 'serial1', 'serial2', 'serial3', 'std', 'virtio', or 'vmware'."
+    condition     = var.vga == null ? true : contains(["cirrus", "none", "qxl", "qxl2", "qxl3", "qxl4", "serial0", "serial1", "serial2", "serial3", "std", "virtio", "virtio-gl", "vmware"], var.vga.type)
+    error_message = "Vga type must be one of 'cirrus', 'none', 'qxl', 'qxl2', 'qxl3', 'qxl4', 'serial0', 'serial1', 'serial2', 'serial3', 'std', 'virtio', 'virtio-gl' or 'vmware'."
   }
 
   validation {
