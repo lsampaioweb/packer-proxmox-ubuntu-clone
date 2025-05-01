@@ -1,4 +1,4 @@
-# packer-proxmox-ubuntu-22-04-clone
+# packer-proxmox-ubuntu-clone
 Repository of a Packer module to create an Ubuntu 22.04 virtual machine (server or desktop) on Proxmox VE from a cloned template.
 
 Run these commands on the Proxmox node (just once and on any node):
@@ -47,10 +47,10 @@ Run these commands on the computer that is running Packer:
 This repository is to be used as a sub-module on other repositories.
 
 See other repositories that use it: <br/>
-1. [proxmox-ubuntu-22-04-server-standard](https://github.com/lsampaioweb/proxmox-ubuntu-22-04-server-standard "proxmox-ubuntu-22-04-server-standard").
-1. [proxmox-ubuntu-22-04-server-std-docker](https://github.com/lsampaioweb/proxmox-ubuntu-22-04-server-std-docker "proxmox-ubuntu-22-04-server-std-docker").
-1. [proxmox-ubuntu-22-04-desktop-raw](https://github.com/lsampaioweb/proxmox-ubuntu-22-04-desktop-raw "proxmox-ubuntu-22-04-desktop-raw").
-1. [proxmox-ubuntu-22-04-desktop-standard](https://github.com/lsampaioweb/proxmox-ubuntu-22-04-desktop-standard "proxmox-ubuntu-22-04-desktop-standard").
+1. [proxmox-ubuntu-server-standard](https://github.com/lsampaioweb/proxmox-ubuntu-server-standard "proxmox-ubuntu-server-standard").
+1. [proxmox-ubuntu-server-std-docker](https://github.com/lsampaioweb/proxmox-ubuntu-server-std-docker "proxmox-ubuntu-server-std-docker").
+1. [proxmox-ubuntu-desktop-raw](https://github.com/lsampaioweb/proxmox-ubuntu-desktop-raw "proxmox-ubuntu-desktop-raw").
+1. [proxmox-ubuntu-desktop-standard](https://github.com/lsampaioweb/proxmox-ubuntu-desktop-standard "proxmox-ubuntu-desktop-standard").
 
 #
 ### License:
