@@ -1,4 +1,5 @@
 source "null" "password" {
+  # https://developer.hashicorp.com/packer/docs/builders/null
   communicator = "none"
 }
 
